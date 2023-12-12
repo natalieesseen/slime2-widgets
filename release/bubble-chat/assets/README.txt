@@ -1,0 +1,1 @@
+🌷 If you want to use custom badges, add them into this folder.
