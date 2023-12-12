@@ -1,0 +1,14 @@
+# private widgets
+/widgets-private
+
+# slime2 keys
+SLIME2_*_KEY.js
+
+# apple
+.DS_Store
+
+# environmental variable secrets
+*.env.*local
+
+# debug logs
+*.log*
