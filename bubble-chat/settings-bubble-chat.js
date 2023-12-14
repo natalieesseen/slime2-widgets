@@ -4,7 +4,7 @@ addEventListener('slime2:ready', () => {
   slime2.widget.loadSettings('bubble-chat-data.js', [
     defineSetting(
       [
-        'Bubble Chat v1.0.0 by cafeaunat',
+        'Bubble Chat v1.0.2 by cafeaunat',
         '',
       ].join('\n'),
       'title',

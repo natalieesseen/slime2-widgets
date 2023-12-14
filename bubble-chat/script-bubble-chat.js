@@ -2,6 +2,7 @@ let staticEmotes = false
 let previousTheme = ''
 let previousMode = ''
 let customBadges = {};
+let onLoad = true
 
 // the slime2:ready event is fired once
 // indicates that the slime2 global variable is ready to use
@@ -103,26 +104,28 @@ addEventListener('slime2:widget-data-update', () => {
       blue: { light: '#74c7ec', dark: '#85c1dc' },
     };
 
-    const colorModeSettings = colorModes[bubblechat.colorMode];
-
-    if (colorModeSettings) {
-      updatedBubbleChat = { ...updatedBubbleChat, ...colorModeSettings };
-
-      const themeBg = themeColors[bubblechat.theme]?.[bubblechat.colorMode];
-      
-      updatedBubbleChat.nameBg = themeBg;
-      updatedTextStyles.nameColor = colorModeSettings.nameColor;
-      updatedTextStyles.msgColor = colorModeSettings.msgColor;
+    if(!onLoad) {
+      const colorModeSettings = colorModes[bubblechat.colorMode];
+  
+      if (colorModeSettings) {
+        updatedBubbleChat = { ...updatedBubbleChat, ...colorModeSettings };
+  
+        const themeBg = themeColors[bubblechat.theme]?.[bubblechat.colorMode];
+        
+        updatedBubbleChat.nameBg = themeBg;
+        updatedTextStyles.nameColor = colorModeSettings.nameColor;
+        updatedTextStyles.msgColor = colorModeSettings.msgColor;
+      }
+  
+      previousMode = bubblechat.colorMode;
+      previousTheme = bubblechat.theme;
+  
+      slime2.widget.setData({
+        ...data,
+        bubblechat: updatedBubbleChat,
+        textStyles: updatedTextStyles,
+      });
     }
-
-    previousMode = bubblechat.colorMode;
-    previousTheme = bubblechat.theme;
-
-    slime2.widget.setData({
-      ...data,
-      bubblechat: updatedBubbleChat,
-      textStyles: updatedTextStyles,
-    });
   }
 
   eventList.css({
@@ -131,6 +134,8 @@ addEventListener('slime2:widget-data-update', () => {
     '--textColorName': textStyles.nameColor,
     '--textColorMsg': textStyles.msgColor,
   })
+
+  onLoad = false;
 })
 
 /****************
