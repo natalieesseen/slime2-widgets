@@ -60,14 +60,16 @@
   border-radius: 25px 25px 25px 2px;
   padding: 10px 18px;
   color: var(--textColorName);
-  max-width: fit-content;
+  width: fit-content;
 }
 
 /* Badges container */
 .badges {
+  display: flex;
+  gap: 3px;
   background-color: var(--nameBg);
   border-radius: 500px;
-  padding: 10px 13px;
+  padding: 14px;
 }
 
 .hide-badges .badges {
@@ -124,7 +126,7 @@
   padding: 10px 18px;
   color: var(--textColorMsg);
   overflow-wrap: anywhere;
-  max-width: fit-content;
+  width: fit-content;
 }
 
 .emote,
@@ -168,6 +170,8 @@
   justify-content: start;
   align-items: flex-end;
 
+  /* does not work with all browsers!
+  
   .user {
     flex-direction: row-reverse;
     gap: 5px;
@@ -180,7 +184,21 @@
   .content {
     float: right;
     border-radius: 25px 2px 25px 25px;
-  }
+  } */
+}
+
+#slime2-event-list.vertical-top-right > .slime2-event > .message > .user {
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+
+#slime2-event-list.vertical-top-right > .slime2-event > .message > .user > .namePronouns {
+  border-radius: 25px 25px 2px 25px;
+}
+
+#slime2-event-list.vertical-top-right > .slime2-event > .message > .content {
+  float: right;
+  border-radius: 25px 2px 25px 25px;
 }
 
 #slime2-event-list.vertical-bottom-left {
@@ -194,6 +212,8 @@
   justify-content: end;
   align-items: flex-end;
 
+  /* does not work with all browsers!
+  
   .user {
     flex-direction: row-reverse;
     gap: 5px;
@@ -206,7 +226,21 @@
   .content {
     float: right;
     border-radius: 25px 2px 25px 25px;
-  }
+  } */
+}
+
+#slime2-event-list.vertical-bottom-right > .slime2-event > .message > .user {
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+
+#slime2-event-list.vertical-bottom-right > .slime2-event > .message > .user > .namePronouns {
+  border-radius: 25px 25px 2px 25px;
+}
+
+#slime2-event-list.vertical-bottom-right > .slime2-event > .message > .content {
+  float: right;
+  border-radius: 25px 2px 25px 25px;
 }
 
 #slime2-event-list.horizontal-top-left {
