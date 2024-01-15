@@ -3,6 +3,7 @@ let previousTheme = ''
 let previousMode = ''
 let customBadges = {};
 let onLoad = true
+let twitchBg = false
 
 // the slime2:ready event is fired once
 // indicates that the slime2 global variable is ready to use
@@ -87,8 +88,8 @@ addEventListener('slime2:widget-data-update', () => {
     const colorModes = {
       light: {
         msgBg: '#eff1f5',
-        nameColor: '#4c4f69',
-        msgColor: '#4c4f69',
+        nameColor: '#24273a',
+        msgColor: '#24273a',
       },
       dark: {
         msgBg: '#24273a',
@@ -135,6 +136,8 @@ addEventListener('slime2:widget-data-update', () => {
     '--textColorMsg': textStyles.msgColor,
   })
 
+  twitchBg = bubblechat.twitchBg;
+
   onLoad = false;
 })
 
@@ -162,10 +165,11 @@ function onMessage(message) {
   messageClone.find('.message').addClass(`animation-enter-${animations.enter}`)
 
   // add user's name color
-  if (user.color) {
-    messageClone
-      .find('.user')
-      .css('--userColor', slime2.color.light(user.color))
+  if(twitchBg)
+  {
+    messageClone.find('.namePronouns, .badges').css({
+      '--nameBg': slime2.color.light(user.color)
+    })
   }
 
   // set emote size

@@ -4,7 +4,7 @@ addEventListener('slime2:ready', () => {
   slime2.widget.loadSettings('bubble-chat-data.js', [
     defineSetting(
       [
-        'Bubble Chat v1.0.2 by cafeaunat',
+        'Bubble Chat v1.1.0 by cafeaunat',
         '',
       ].join('\n'),
       'title',
@@ -287,10 +287,10 @@ const textSettings = defineSetting('Text Styles', 'textStyles', 'group', {
       }),
     }),
     defineSetting('Text Color (Name)', 'nameColor', 'color-input', {
-      defaultValue: '#eff1f5',
+      defaultValue: '#24273a',
     }),
     defineSetting('Text Color (Message)', 'msgColor', 'color-input', {
-      defaultValue: '#1e1e2e',
+      defaultValue: '#24273a',
     }),
   ],
 })
@@ -315,6 +315,10 @@ const animationSettings = defineSetting('Animations', 'animations', 'group', {
 const bubblechatSettings = defineSetting('Bubble Chat settings', 'bubblechat', 'group', {
   settings: [
     defineSetting('Colors', 'colors', 'text-display', {}),
+    defineSetting('Twitch Color Name Background', 'twitchBg', 'boolean-input', {
+      defaultValue: false,
+      description: 'Will use a pastel version of the color from the chosen username-color on Twitch as the background color for each user. This will ignore the field Name Background.'
+    }),
     defineSetting('Color Mode', 'colorMode', 'select-input', {
       description: 'Pair Dark or Light mode with one of the colors in the dropdown. For custom colors, ignore the dropdown, and choose colors with the color pickers accordingly.',
       options: [
@@ -330,7 +334,7 @@ const bubblechatSettings = defineSetting('Bubble Chat settings', 'bubblechat', '
       }),
     }),
     defineSetting('Name Background', 'nameBg', 'color-input', {
-      defaultValue: '#f38ba8'
+      defaultValue: '#f5c2e7'
     }),
     defineSetting('Message Background', 'msgBg', 'color-input', {
       defaultValue: '#eff1f5'
