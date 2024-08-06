@@ -12,3 +12,6 @@ SLIME2_*_KEY.js
 
 # debug logs
 *.log*
+
+# releases
+*.zip
